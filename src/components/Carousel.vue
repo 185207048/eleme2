@@ -1,7 +1,7 @@
 <template>
         <div>
             <div class="header-carousel">
-                <el-carousel trigger="click" indicator-position="none" arrow="never" :autoplay="false" ref="carousel">
+                <el-carousel trigger="click" class="el-carousel-index" indicator-position="none" arrow="never" :autoplay="false" ref="carousel">
                     <el-carousel-item >
                         <div class="header-back1">
                             <div class="header-title">
@@ -112,6 +112,7 @@ export default {
         line-height: 260px;
     }
     
+    
     .el-container:nth-child(7) .el-aside {
         line-height: 320px;
         
@@ -153,6 +154,7 @@ export default {
     .header-title{
         margin:0 auto;
     }
+   
     .header-img{
         margin-left:10%;
         width: 70px;
@@ -204,7 +206,7 @@ export default {
     }
     
     .header-carousel{
-        z-index: -1;
+        z-index: auto !important;
         position: absolute;
         top:0;
         height: 550px;
@@ -290,6 +292,7 @@ export default {
 <style scoped>
 .header-carousel /deep/ .el-carousel__container{
       height: 550px!important;
+      z-index: -2;
   }
 </style>
 
