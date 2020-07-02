@@ -1,7 +1,6 @@
 <template>
     <div class="main">
         <div class="header">
-        <div class="tiny-box"></div>
         <!--头的左半部分-->
             <div class="header-left">
                 <div class="header-left-content">
@@ -364,6 +363,10 @@
             
            
         </div>
+        <!--登录-->
+        <div class="login">
+            <div></div>
+        </div>
     </div>
 </template>
 
@@ -425,15 +428,13 @@ body{
 <!--header样式-->
 <style scoped>
 .header{
-    z-index: 10;
+    z-index: 99;
     display: flex;
     padding:0.1rem 0.5rem;
     min-height: 0.2rem;
     justify-content:center;
+    position: relative;
     
-}
-.tiny-box{
-    height: 3.5rem;
 }
 .header-left{
     display: flex;
@@ -493,8 +494,9 @@ body{
 <!--主要信息样式 eleb-->
 <style scoped>
     .adv{
-        height: 3.4rem;
         font-size: 0.1rem;
+        position: relative;
+        top:3.3rem;
     }
     .adv-ul{
         display: flex;
@@ -556,14 +558,14 @@ body{
         vertical-align: middle;
         margin-right: 0.05rem;
         font-size: 0.13rem;
-        z-index:20;
+        z-index:60;
         cursor: pointer;
     }
     .adv-s-content2{
         font-size: 0.05rem;
         display: flex;
         align-items: center;
-        z-index:20;
+        z-index:60;
         cursor: pointer;
     }
     .adv-serve-white{

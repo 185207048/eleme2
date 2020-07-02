@@ -1,5 +1,7 @@
 <template>
         <div>
+            <!--这是跑马灯的组件
+            -->
             <div class="header-carousel">
                 <el-carousel trigger="click" class="el-carousel-index" indicator-position="none" arrow="never" :autoplay="false" ref="carousel">
                     <el-carousel-item >
@@ -76,11 +78,12 @@ export default {
         margin:5px;
         cursor: pointer;
         opacity: 70%;
+
     }
     .point-contorl{
         position:absolute;
         top: 500px;
-        z-index: 99;
+        /*z-index: 99;*/
         margin: 0 auto;
         text-align: center;
         left: 49%;
@@ -95,6 +98,7 @@ export default {
         color: #333;
         text-align: center;
         line-height: 60px;
+        
     }
     .el-main {
         background-color: #E9EEF3;
@@ -206,7 +210,8 @@ export default {
     }
     
     .header-carousel{
-        z-index: auto !important;
+        /*全局设置成-1,白点儿才能用 */
+        
         position: absolute;
         top:0;
         height: 550px;
@@ -327,7 +332,6 @@ export default {
     top:25%;
     font-size:20px;
     font-weight: 500;
-    z-index:20;
     cursor: pointer;
 }
 .ele-body-title-2{
@@ -336,7 +340,6 @@ export default {
     font-weight: 300;
     font-size:12px;
     margin:0 15px;
-    z-index:20;
     cursor: pointer;
 }
 .ele-body-fitin{
