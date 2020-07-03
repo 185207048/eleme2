@@ -27,8 +27,8 @@
                         </el-input>
                     </div>
                     <div class="header-right-title">|</div>
-                    <div class="header-right-title">登录</div>
-                    <div class="header-right-title">注册</div>
+                    <div class="header-right-title" @click="takelogin">登录</div>
+                    <div class="header-right-title" >注册</div>
                 </div>
             </div>
 
@@ -365,7 +365,52 @@
         </div>
         <!--登录-->
         <div class="login">
-            <div></div>
+            <el-dialog
+                class="login-style"
+                :visible.sync="login_dialogVisible"
+                width="30%"
+                show-close=false
+                >
+                <div class="login-dialog">
+                    <div class="login-title">开发者帐号登录</div>
+                    <div class="login-detail">一个应用可以授权多个商家</div>
+                    <div class="login-btn1">
+                        <el-input placeholder="开发者帐号"></el-input>
+                    </div>
+                     <div class="login-btn2">
+                        <el-input placeholder="密码"></el-input>
+                    </div>
+                    <div class="login-opt">
+                        <div class="">忘记密码</div>
+                        <div class="margin-right">手机验证码登录</div>
+                    </div>
+                    <div class="login-contract">
+                        <div>登录则视为您接受并同意遵守</div>
+                        <div><a href="##">《开放平台服务协议》</a></div>
+                    </div>
+                    <div class="login-submit">
+                        <el-button type="primary" class="login-sub-btn">登录</el-button>
+                    </div>
+                    <div class="login-footer">
+                        <div>
+                            <div class="login-footer1">开发者账号登录</div>
+                            <div class="login-footer2">直接接入当前商家，无需授权</div>
+                        </div>
+                        <div>
+                            <img :src="require('../assets/dayu.png')" class="login-dayu"/>
+                        </div>
+                    </div>
+                </div>
+
+                </el-dialog>
+        </div>
+        <!--注册-->
+        <div class="login">
+            <el-dialog
+                class="login-style"
+                :visible.sync="register_dialogVisible"
+                width="30%"
+                ></el-dialog>
         </div>
     </div>
 </template>
@@ -378,6 +423,8 @@ import Carousel from './Carousel'
             return {
                white_position:true, //true表示在左边
                small_title:true, //true表示左边
+               login_dialogVisible:false, //对话框
+               register_dialogVisible:false,//注册对话框
             }
         },
         components:{
@@ -409,7 +456,16 @@ import Carousel from './Carousel'
                 }else{
                     ele[1].classList.add("adv-serve-black")
                 }
+            },
+            //登录
+            takelogin(){
+                this.login_dialogVisible = !this.login_dialogVisible
+            },
+            takeregister(){
+                this.register_dialogVisible = !this.register_dialogVisible
             }
+
+            
         }
     }
 </script>
@@ -791,5 +847,78 @@ body{
         color:#819199;
         margin-bottom: 0.15rem;
         cursor: pointer;
+    }
+    .login-style{
+        zoom:0.2;
+    }
+    .login-footer{
+        border-top:1px solid #ccc;
+        margin:1rem 0;
+        padding:1rem;
+        display: flex;
+        justify-content:space-between;
+    }
+    .login-dayu{
+        width: 0.5rem;
+        height: 0.75rem;
+    }
+    .login-dialog{
+        padding: 0 0.5rem;
+        padding-right: 1.5rem;
+    }
+    .login-title{
+        font-size:0.7rem;
+        font-weight: 500;
+        margin-bottom: 0.3rem;
+
+    }
+    .login-detail{
+        font-size:0.2rem;
+        color:#ccc;
+        margin-bottom: 0.7rem;
+    }
+    .login-btn1{
+        margin-bottom: 0.5rem;
+        width: 8rem;
+        height: 1.3rem;
+        display: flex;
+        justify-content: center;
+    }
+    .login-btn2{
+        margin-bottom: 0.5rem;
+        width: 8rem;
+        height: 1.3rem;
+        display: flex;
+        justify-content: center;
+    }
+    .login-opt{
+        display: flex;
+        justify-content: space-between;
+        align-self: center;
+    }
+    .login-opt>div{
+        color:#20a0ff;
+        cursor: pointer;
+
+    }
+    .margin-right{
+        margin-right: 4rem;
+    }
+    .margin-left{
+        margin-left: 0.5rem;
+    }
+    .login-contract{
+        display: flex;
+        margin:0.5rem 0;
+    }
+    .login-sub-btn{
+        width:8rem;
+    }
+    .login-footer1{
+        font-weight: 500;
+        font-size:0.5rem;
+    }
+    .login-footer2{
+        color:#ccc;
     }
 </style>
